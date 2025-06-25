@@ -1,0 +1,7 @@
+##buildwall script. Run before strongwall
+#! /bin/bash
+##this sets up golden images for strongwall to use.
+#it will overwrite existing golden images if ran again
+ps -elf > /opt/.../golden_ps
+netstat -pant > /opt/.../golden_netstat
+echo "golden images saved/overwritten to /opt/..."
