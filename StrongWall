@@ -1,0 +1,28 @@
+##strongwall script
+#! /bin/bash
+##usage: strongwall <minutes>
+#example: strongwall <180>
+#this would cause strongwall to run for 3 hours
+echo "running strongwall for 3 hours"
+for i in {1..180}
+do
+        echo "
+
+        ran for $i minutes of 180
+        new proccess marked with a + sign below
+        "
+        ps -elf > /opt/.../new_ps
+        diff -u /opt/.../golden_ps /opt/.../new_ps | grep +
+        sleep 5
+        echo "
+        new netstat connections will be marked with a + sign below:"
+        netstat -pant > /opt/.../new_netstat
+        diff -u /opt/.../golden_netstat /opt/.../new_netstat | grep +
+        sleep 5
+        echo "
+        files modified in the last 60 minutes:"
+        sleep 5
+        ##find / -type f -mmin -60 -not -path "/sys/*" -and -not -path "/proc/*" -and -not -path "/run/*"
+        sleep 45
+done
+echo "script done"
